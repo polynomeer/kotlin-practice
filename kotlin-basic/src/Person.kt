@@ -6,6 +6,20 @@ class Rectangle(val width: Int, val height: Int) {
 }
 
 fun main() {
+    val nullablePerson: Person? =
+        if (System.currentTimeMillis() % 2 == 0L) Person("Even", 22, true)
+        else null
+
+//    if(nullablePerson != null) {
+//        println(nullablePerson.age)
+//    }
+//    println(nullablePerson?.age)
+//    println(nullablePerson!!.age)
+//    println(nullablePerson?.age ?: 0)
+
+    val notNullPerson: Person = nullablePerson ?: Person("Default Person", 0, false)
+    println(notNullPerson)
+
     val people = listOf(
         Person("Alice", 29, true),
         Person("Cameron", 42, true),
