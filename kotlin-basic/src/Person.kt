@@ -9,8 +9,12 @@ fun main() {
     val people = listOf(
         Person("Alice", 29, true),
         Person("Cameron", 42, true),
+        Person("Cameron2", 42, true),
         Person("Spielberg", 52, false),
-        Person("Philip", 12, true)
+        Person("Spielberg2", 52, false),
+        Person("Philip", 12, true),
+        Person("Philip2", 12, true)
+
     )
 
     println(
@@ -43,6 +47,26 @@ fun main() {
             .map { MyChild.ofDefaultAge(it.name, "No Family name") }
             .find { it.subName == "Cameron" }
     )
+
+    println(
+        people.groupBy { it.age }
+    )
+
+    println(
+        people.map { it.name }
+            .map { it.toList() }
+            .flatten()
+    )
+    println(
+        people.map { it.name }
+            .flatMap { it.toList() }
+    )
+
+    println(
+        people.asSequence()
+            .map { it.name }
+            .find { it.startsWith("J") })
+
 
     val person = Person("Dmitry", 30, false)
 
