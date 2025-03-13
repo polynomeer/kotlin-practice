@@ -29,6 +29,21 @@ fun main() {
         people.maxByOrNull(Person::age)
     )
 
+    println(
+        people.filter { it.age > 36 }
+            .map { "${it.name} 나이는 ${it.age}" }
+    )
+    println(
+        people.filter { it.age > 36 }
+            .map { MyChild.ofDefaultAge(it.name, "No Family name") }
+            .any { it.age < 30 }
+    )
+    println(
+        people.filter { it.age > 36 }
+            .map { MyChild.ofDefaultAge(it.name, "No Family name") }
+            .find { it.subName == "Cameron" }
+    )
+
     val person = Person("Dmitry", 30, false)
 
     println(person.name)
